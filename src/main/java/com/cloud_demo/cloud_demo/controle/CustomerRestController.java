@@ -58,7 +58,7 @@ public class CustomerRestController {
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public ResponseEntity<?> deleteGreeting(@PathVariable String id) throws IOException {
 		db = client.database("customer", false);
-		Customer customer = db.find(Customer.class, ""+id+"");
+		Customer customer = db.find(Customer.class, id);
 		Response remove = db.remove(customer.get_id(),customer.get_rev());
 		return new ResponseEntity<String>(remove.getReason(), HttpStatus.valueOf(remove.getStatusCode()));
 	}
