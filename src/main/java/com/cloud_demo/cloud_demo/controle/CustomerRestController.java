@@ -31,7 +31,7 @@ public class CustomerRestController {
 	// @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody String saveReview(@RequestBody Customer cust) {
 		db = client.database("customer", false);
-		System.out.println("Save Customer " + cust);
+		System.out.println("Save a Customer details" + cust);
 		Response r = null;
 		if (cust != null) {
 			r = db.post(cust);
